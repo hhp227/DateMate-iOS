@@ -40,14 +40,14 @@ class KmoocDetailActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         binding.toolbar.setNavigationOnClickListener { finish() }
         viewModel.detail(intent.getStringExtra(INTENT_PARAM_COURSE_ID)!!)
-        binding.progressBar.visibility = (!viewModel.lecture.hasObservers()).toVisibility()
         subscribeUi()
     }
 
     private fun subscribeUi() {
         viewModel.lecture.observe(this) { lecture ->
             with(binding) {
-                supportActionBar?.title = lecture.classfyName
+                progressBar.visibility = (!viewModel.lecture.hasObservers()).toVisibility()
+                supportActionBar?.title = lecture.name
                 lectureNumber.setDescription(getString(R.string.lecture_number), lecture.number)
                 lectureOrg.setDescription(getString(R.string.lecture_org_name), lecture.orgName)
                 lectureType.setDescription(getString(R.string.lecture_type), lecture.classfyName)
