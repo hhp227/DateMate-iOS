@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">KMOOC</string>
-    <string name="lecture_number">강좌번호</string>
-    <string name="lecture_org_name">운영기관</string>
-    <string name="lecture_type">강좌분류</string>
-    <string name="lecture_due">운영기간</string>
-    <string name="lecture_teachers">교수정보</string>
-</resources>
