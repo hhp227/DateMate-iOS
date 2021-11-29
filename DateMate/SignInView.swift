@@ -17,6 +17,10 @@ struct SignInView: View {
     var body: some View {
         VStack {
             VStack {
+                Image("firebase_lockup_400")
+                Text("Find your datemate")
+            }
+            VStack {
                 TextField("Email", text: $email).disableAutocorrection(true).autocapitalization(.none).padding().background(Color(.secondarySystemBackground))
                 SecureField("Password", text: $password).disableAutocorrection(true).autocapitalization(.none).padding().background(Color(.secondarySystemBackground))
                 Button(action: {
