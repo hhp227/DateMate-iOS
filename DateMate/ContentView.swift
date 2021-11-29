@@ -20,7 +20,7 @@ struct ContentView: View {
                     })
                 }
             } else {
-                LoginView().environmentObject(viewModel)
+                SignInView().environmentObject(viewModel)
             }
         }.onAppear(perform: {
             viewModel.loggedIn = viewModel.isLoggedIn

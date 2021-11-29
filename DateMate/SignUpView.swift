@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RegisterView: View {
+struct SignUpView: View {
     @ObservedObject var viewModel = RegisterViewModel()
     
     @State var email = ""
@@ -29,8 +29,8 @@ struct RegisterView: View {
     }
 }
 
-struct RegisterView_Previews: PreviewProvider {
+struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView()
+        SignUpView()
     }
 }

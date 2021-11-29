@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoginView: View {
+struct SignInView: View {
     @EnvironmentObject var viewModel: LoginViewModel
     
     @State var email = ""
@@ -24,14 +24,14 @@ struct LoginView: View {
                 }, label: {
                     Text("Login").foregroundColor(Color.white).frame(width: 200, height: 50).cornerRadius(8).background(Color.blue)
                 })
-                NavigationLink("Register", destination: RegisterView())
+                NavigationLink("Register", destination: SignUpView())
             }.padding()
         }
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
+struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView().preferredColorScheme(.dark)
+        SignInView().preferredColorScheme(.dark)
     }
 }
