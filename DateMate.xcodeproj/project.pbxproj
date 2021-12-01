@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A1F0924275276500025C6E8 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F0923275276500025C6E8 /* SignInView.swift */; };
+		0A3B68A12757C0480041CE9F /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B68A02757C0480041CE9F /* UserRepository.swift */; };
 		0A3F402127539CF600034106 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3F402027539CF600034106 /* GoogleService-Info.plist */; };
 		0A3F40262753A9E900034106 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3F40252753A9E900034106 /* LoginViewModel.swift */; };
 		0A3F40292753ABA700034106 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3F40282753ABA700034106 /* RegisterViewModel.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		0A1F0923275276500025C6E8 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		0A3B68A02757C0480041CE9F /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		0A3F402027539CF600034106 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A3F40252753A9E900034106 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0A3F40282753ABA700034106 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				0A3F402F2753B38700034106 /* SignUpView.swift */,
 				0A3F40252753A9E900034106 /* LoginViewModel.swift */,
 				0A3F40282753ABA700034106 /* RegisterViewModel.swift */,
+				0A3B68A02757C0480041CE9F /* UserRepository.swift */,
 			);
 			path = DateMate;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				0A3F40262753A9E900034106 /* LoginViewModel.swift in Sources */,
 				0A3F40292753ABA700034106 /* RegisterViewModel.swift in Sources */,
 				0A1F0924275276500025C6E8 /* SignInView.swift in Sources */,
+				0A3B68A12757C0480041CE9F /* UserRepository.swift in Sources */,
 				0A3F40302753B38700034106 /* SignUpView.swift in Sources */,
 				0A3F8E38274E765000DD11F9 /* ContentView.swift in Sources */,
 				0A3F8E36274E765000DD11F9 /* DateMateApp.swift in Sources */,
