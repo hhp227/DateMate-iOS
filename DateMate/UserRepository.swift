@@ -6,7 +6,48 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 class UserRepository {
+    let auth = Auth.auth()
     
+    var isSinedIn: Bool {
+        get {
+            auth.currentUser == nil
+        }
+        set {
+            
+        }
+    }
+    
+    func signIn(email: String, password: String, result: @escaping (SignInStatus) -> Void) {
+        result(SignInStatus.Loading)
+        auth.signIn(withEmail: email, password: password) { authDataResult, error in
+            if authDataResult != nil {
+                self.isSinedIn = true
+                print("LoginSuccess")
+                result(SignInStatus.Success)
+            } else if error != nil {
+                result(SignInStatus.Failure)
+            }
+        }
+    }
+    
+    func signOut() {
+        try? auth.signOut()
+    }
+    
+    func signUp(email: String, password: String) {
+        auth.createUser(withEmail: email, password: password) { authDataResult, error in
+            guard authDataResult != nil, error == nil else {
+                return
+            }
+        }
+    }
+}
+
+enum SignInStatus {
+    case Success
+    case Loading
+    case Failure
 }

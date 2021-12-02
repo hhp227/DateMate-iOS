@@ -10,13 +10,14 @@
 		0A1F0924275276500025C6E8 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F0923275276500025C6E8 /* SignInView.swift */; };
 		0A3B68A12757C0480041CE9F /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B68A02757C0480041CE9F /* UserRepository.swift */; };
 		0A3F402127539CF600034106 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3F402027539CF600034106 /* GoogleService-Info.plist */; };
-		0A3F40262753A9E900034106 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3F40252753A9E900034106 /* LoginViewModel.swift */; };
-		0A3F40292753ABA700034106 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3F40282753ABA700034106 /* RegisterViewModel.swift */; };
+		0A3F40262753A9E900034106 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3F40252753A9E900034106 /* SignInViewModel.swift */; };
+		0A3F40292753ABA700034106 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3F40282753ABA700034106 /* SignUpViewModel.swift */; };
 		0A3F40302753B38700034106 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3F402F2753B38700034106 /* SignUpView.swift */; };
 		0A3F8E36274E765000DD11F9 /* DateMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3F8E35274E765000DD11F9 /* DateMateApp.swift */; };
 		0A3F8E38274E765000DD11F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3F8E37274E765000DD11F9 /* ContentView.swift */; };
 		0A3F8E3A274E765100DD11F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3F8E39274E765100DD11F9 /* Assets.xcassets */; };
 		0A3F8E3D274E765100DD11F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3F8E3C274E765100DD11F9 /* Preview Assets.xcassets */; };
+		0ABC1A5F2759242200771876 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC1A5E2759242200771876 /* MainView.swift */; };
 		C662C650560DE6942A4884A9 /* Pods_DateMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 662D089497AB6DC1B45F2EE9 /* Pods_DateMate.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,8 +25,8 @@
 		0A1F0923275276500025C6E8 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		0A3B68A02757C0480041CE9F /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		0A3F402027539CF600034106 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		0A3F40252753A9E900034106 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		0A3F40282753ABA700034106 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		0A3F40252753A9E900034106 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		0A3F40282753ABA700034106 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		0A3F402F2753B38700034106 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		0A3F8E32274E765000DD11F9 /* DateMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DateMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3F8E35274E765000DD11F9 /* DateMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateMateApp.swift; sourceTree = "<group>"; };
@@ -33,6 +34,7 @@
 		0A3F8E39274E765100DD11F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A3F8E3C274E765100DD11F9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A3F8E3E274E765100DD11F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0ABC1A5E2759242200771876 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		160E6F26AC2160D724B8778D /* Pods-DateMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DateMate.debug.xcconfig"; path = "Target Support Files/Pods-DateMate/Pods-DateMate.debug.xcconfig"; sourceTree = "<group>"; };
 		662D089497AB6DC1B45F2EE9 /* Pods_DateMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DateMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EED1A7AB62DE6DFBFFB4DFC4 /* Pods-DateMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DateMate.release.xcconfig"; path = "Target Support Files/Pods-DateMate/Pods-DateMate.release.xcconfig"; sourceTree = "<group>"; };
@@ -79,9 +81,10 @@
 				0A3F8E3B274E765100DD11F9 /* Preview Content */,
 				0A1F0923275276500025C6E8 /* SignInView.swift */,
 				0A3F402F2753B38700034106 /* SignUpView.swift */,
-				0A3F40252753A9E900034106 /* LoginViewModel.swift */,
-				0A3F40282753ABA700034106 /* RegisterViewModel.swift */,
+				0A3F40252753A9E900034106 /* SignInViewModel.swift */,
+				0A3F40282753ABA700034106 /* SignUpViewModel.swift */,
 				0A3B68A02757C0480041CE9F /* UserRepository.swift */,
+				0ABC1A5E2759242200771876 /* MainView.swift */,
 			);
 			path = DateMate;
 			sourceTree = "<group>";
@@ -228,8 +231,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A3F40262753A9E900034106 /* LoginViewModel.swift in Sources */,
-				0A3F40292753ABA700034106 /* RegisterViewModel.swift in Sources */,
+				0A3F40262753A9E900034106 /* SignInViewModel.swift in Sources */,
+				0ABC1A5F2759242200771876 /* MainView.swift in Sources */,
+				0A3F40292753ABA700034106 /* SignUpViewModel.swift in Sources */,
 				0A1F0924275276500025C6E8 /* SignInView.swift in Sources */,
 				0A3B68A12757C0480041CE9F /* UserRepository.swift in Sources */,
 				0A3F40302753B38700034106 /* SignUpView.swift in Sources */,

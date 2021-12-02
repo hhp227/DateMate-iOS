@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SignInView: View {
-    @EnvironmentObject var viewModel: LoginViewModel
+    @EnvironmentObject var viewModel: SignInViewModel
     
     @State var email = ""
     
@@ -24,13 +24,14 @@ struct SignInView: View {
                 TextField("Email", text: $email).disableAutocorrection(true).autocapitalization(.none).padding().background(Color(.secondarySystemBackground))
                 SecureField("Password", text: $password).disableAutocorrection(true).autocapitalization(.none).padding().background(Color(.secondarySystemBackground))
                 Button(action: {
-                    viewModel.login(email: email, password: password)
+                    viewModel.signIn(email: email, password: password)
                 }, label: {
-                    Text("Login").foregroundColor(Color.white).frame(width: 200, height: 50).cornerRadius(8).background(Color.blue)
+                    Text("Login").foregroundColor(Color.white).padding().frame(maxWidth:.infinity).cornerRadius(8).background(Color.blue)
                 })
                 NavigationLink("Register", destination: SignUpView())
             }.padding()
-        }
+            Spacer()
+        }.frame(minWidth:0, maxWidth:.infinity, alignment: .top)
     }
 }
 

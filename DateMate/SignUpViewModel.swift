@@ -8,12 +8,12 @@
 import Foundation
 import Firebase
 
-class RegisterViewModel: ObservableObject {
+class SignUpViewModel: ObservableObject {
     @Published var loggedIn = false
     
     let auth = Auth.auth()
     
-    func register(email: String, password: String) {
+    func signUp(email: String, password: String) {
         auth.createUser(withEmail: email, password: password) { result, error in
             guard result != nil, error == nil else {
                 return
