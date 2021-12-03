@@ -17,7 +17,7 @@ struct SignInView: View {
     var body: some View {
         VStack {
             VStack {
-                Image("firebase_lockup_400")
+                Image("logo_light_eng").resizable().aspectRatio(contentMode: .fit).padding()
                 Text("Find your datemate")
             }
             VStack {

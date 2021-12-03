@@ -32,8 +32,10 @@ class SignInViewModel: ObservableObject {
         }
         repository.signIn(email: email, password: password) {
             switch $0 {
-            case .Success, .Failure:
-                self.signInResult = SignInResult(self.repository.isSinedIn)
+            case .Success:
+                self.signInResult = SignInResult(true)
+            case .Failure:
+                self.signInResult = SignInResult(false)
             case .Loading:
                 print("loading중입니다.")
             }

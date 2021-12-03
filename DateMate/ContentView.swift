@@ -11,12 +11,10 @@ struct ContentView: View {
     @ObservedObject var viewModel = SignInViewModel(.init())
     
     var body: some View {
-        NavigationView {
-            if viewModel.signInResult.success {
-                MainView().environmentObject(viewModel)
-            } else {
-                SignInView().environmentObject(viewModel)
-            }
+        if viewModel.signInResult.success {
+            MainView().environmentObject(viewModel)
+        } else {
+            SignInView().environmentObject(viewModel)
         }
     }
 }

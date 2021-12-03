@@ -11,20 +11,10 @@ import FirebaseAuth
 class UserRepository {
     let auth = Auth.auth()
     
-    var isSinedIn: Bool {
-        get {
-            auth.currentUser == nil
-        }
-        set {
-            
-        }
-    }
-    
     func signIn(email: String, password: String, result: @escaping (SignInStatus) -> Void) {
         result(SignInStatus.Loading)
         auth.signIn(withEmail: email, password: password) { authDataResult, error in
             if authDataResult != nil {
-                self.isSinedIn = true
                 print("LoginSuccess")
                 result(SignInStatus.Success)
             } else if error != nil {
