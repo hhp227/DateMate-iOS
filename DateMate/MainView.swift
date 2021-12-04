@@ -12,12 +12,16 @@ struct MainView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                Text("You are Logged In")
-                Button(action: signInViewModel.signOut, label: {
-                    Text("Logout").frame(width: 200, height: 50).background(Color.green).foregroundColor(Color.blue).padding()
-                })
-            }.navigationTitle("Datemate")
+            TabView {
+                HomeView().tabItem {
+                    Image(systemName: "heart.fill")
+                    Text("Home")
+                }
+                LoungeView().tabItem {
+                    Image(systemName: "text.bubble")
+                    Text("Lounge")
+                }
+            }.navigationTitle("Datemate").navigationBarTitleDisplayMode(.inline)
         }
     }
 }

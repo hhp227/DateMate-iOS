@@ -26,9 +26,9 @@ struct SignInView: View {
                 Button(action: {
                     viewModel.signIn(email: email, password: password)
                 }, label: {
-                    Text("Login").foregroundColor(Color.white).padding().frame(maxWidth:.infinity).cornerRadius(8).background(Color.blue)
+                    Text("Sign In").foregroundColor(Color.white).padding().frame(maxWidth:.infinity).cornerRadius(8).background(Color.blue)
                 })
-                NavigationLink("Register", destination: SignUpView())
+                NavigationLink("Sign Up", destination: SignUpView())
             }.padding()
             Spacer()
         }.frame(minWidth:0, maxWidth:.infinity, alignment: .top)
