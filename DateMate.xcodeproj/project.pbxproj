@@ -20,6 +20,8 @@
 		0A3F8E3A274E765100DD11F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3F8E39274E765100DD11F9 /* Assets.xcassets */; };
 		0A3F8E3D274E765100DD11F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3F8E3C274E765100DD11F9 /* Preview Assets.xcassets */; };
 		0ABC1A5F2759242200771876 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC1A5E2759242200771876 /* MainView.swift */; };
+		0AF55AC4275F9F120042D9F3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF55AC3275F9F120042D9F3 /* HomeViewModel.swift */; };
+		0AF55AC7275F9F3E0042D9F3 /* RoungeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF55AC6275F9F3E0042D9F3 /* RoungeViewModel.swift */; };
 		C662C650560DE6942A4884A9 /* Pods_DateMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 662D089497AB6DC1B45F2EE9 /* Pods_DateMate.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		0A3F8E3C274E765100DD11F9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A3F8E3E274E765100DD11F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0ABC1A5E2759242200771876 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		0AF55AC3275F9F120042D9F3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		0AF55AC6275F9F3E0042D9F3 /* RoungeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoungeViewModel.swift; sourceTree = "<group>"; };
 		160E6F26AC2160D724B8778D /* Pods-DateMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DateMate.debug.xcconfig"; path = "Target Support Files/Pods-DateMate/Pods-DateMate.debug.xcconfig"; sourceTree = "<group>"; };
 		662D089497AB6DC1B45F2EE9 /* Pods_DateMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DateMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EED1A7AB62DE6DFBFFB4DFC4 /* Pods-DateMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DateMate.release.xcconfig"; path = "Target Support Files/Pods-DateMate/Pods-DateMate.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +95,8 @@
 				0ABC1A5E2759242200771876 /* MainView.swift */,
 				0A1A6F5F275B143D009C6A27 /* HomeView.swift */,
 				0A1A6F62275B1451009C6A27 /* LoungeView.swift */,
+				0AF55AC3275F9F120042D9F3 /* HomeViewModel.swift */,
+				0AF55AC6275F9F3E0042D9F3 /* RoungeViewModel.swift */,
 			);
 			path = DateMate;
 			sourceTree = "<group>";
@@ -238,12 +244,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A1A6F60275B143D009C6A27 /* HomeView.swift in Sources */,
+				0AF55AC4275F9F120042D9F3 /* HomeViewModel.swift in Sources */,
 				0A3F40262753A9E900034106 /* SignInViewModel.swift in Sources */,
 				0A1A6F63275B1451009C6A27 /* LoungeView.swift in Sources */,
 				0ABC1A5F2759242200771876 /* MainView.swift in Sources */,
 				0A3F40292753ABA700034106 /* SignUpViewModel.swift in Sources */,
 				0A1F0924275276500025C6E8 /* SignInView.swift in Sources */,
 				0A3B68A12757C0480041CE9F /* UserRepository.swift in Sources */,
+				0AF55AC7275F9F3E0042D9F3 /* RoungeViewModel.swift in Sources */,
 				0A3F40302753B38700034106 /* SignUpView.swift in Sources */,
 				0A3F8E38274E765000DD11F9 /* ContentView.swift in Sources */,
 				0A3F8E36274E765000DD11F9 /* DateMateApp.swift in Sources */,
