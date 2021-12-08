@@ -8,5 +8,7 @@
 import Foundation
 
 class HomeViewModel: ObservableObject {
-    
+    func test() {
+        print("HomeViewModel test")
+    }
 }
