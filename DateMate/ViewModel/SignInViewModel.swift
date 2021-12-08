@@ -9,12 +9,13 @@ import Foundation
 import FirebaseAuth
 
 class SignInViewModel: ObservableObject {
-    @Published var signInResult = SignInResult()
+    @Published var signInResult: SignInResult
     
     private let repository: UserRepository
     
     init(_ repository: UserRepository) {
         self.repository = repository
+        self.signInResult = SignInResult(repository.getCurrentUser() != nil)
     }
     
     private func isEmailValid(_ email: String) -> Bool {

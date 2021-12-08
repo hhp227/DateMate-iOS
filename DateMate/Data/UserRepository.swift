@@ -35,6 +35,10 @@ class UserRepository {
             }
         }
     }
+    
+    func getCurrentUser() -> User? {
+        return auth.currentUser
+    }
 }
 
 enum SignInStatus {
