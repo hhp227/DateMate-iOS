@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct LoungeView: View {
-    @ObservedObject var viewModel = LoungeViewModel()
+    @ObservedObject var viewModel = LoungeViewModel(.init())
     
     var body: some View {
         Text("Lounge").onTapGesture {
             viewModel.test()
+            print("temp: \(viewModel.test2())")
         }
     }
 }

@@ -13,13 +13,13 @@ class UserRepository {
     
     var user: User?
     
-    func signIn(email: String, password: String, result: @escaping (SignInStatus) -> Void) {
-        result(SignInStatus.Loading)
+    func signIn(email: String, password: String, result: @escaping (SignInState) -> Void) {
+        result(SignInState.Loading)
         auth.signIn(withEmail: email, password: password) { authDataResult, error in
             if authDataResult != nil {
-                result(SignInStatus.Success)
+                result(SignInState.Success)
             } else if error != nil {
-                result(SignInStatus.Failure)
+                result(SignInState.Failure)
             }
         }
     }
@@ -41,7 +41,7 @@ class UserRepository {
     }
 }
 
-enum SignInStatus {
+enum SignInState {
     case Success
     case Loading
     case Failure
