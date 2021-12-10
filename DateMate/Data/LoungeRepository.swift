@@ -19,12 +19,15 @@ class LoungeRepository {
     }
     
     func get() {
-        postRef.getData { error, snapshot in
+        postRef.getData { error, result in
             guard error == nil else {
                 print(error?.localizedDescription)
                 return
             }
-            print("Test: \(snapshot.children)")
+            result.children.map { snapshot in
+                print("Test: \(snapshot)")
+            }
+            
         }
     }
     
