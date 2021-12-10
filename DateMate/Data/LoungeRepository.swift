@@ -24,10 +24,22 @@ class LoungeRepository {
                 print(error?.localizedDescription)
                 return
             }
-            result.children.map { snapshot in
-                print("Test: \(snapshot)")
+            let temp = result.children.map { dataSnapshot -> Post in
+                if let snapshot = dataSnapshot as? DataSnapshot, let dic = snapshot.value as? [String: Any] {
+                    let post = Post.init(
+                        uid: dic["uid"] as! String,
+                        author: dic["author"] as! String,
+                        title: dic["title"] as! String,
+                        body: dic["body"] as! String,
+                        starCount: dic["starCount"] as! Int,
+                        stars: [:]
+                    )
+                    return post
+                } else {
+                    fatalError()
+                }
             }
-            
+            print("test: \(temp)")
         }
     }
     
