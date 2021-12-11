@@ -13,8 +13,8 @@ struct LoungeView: View {
     var body: some View {
         Text("Lounge").onTapGesture {
             viewModel.test()
-            print("temp: \(viewModel.test2())")
-        }
+            print("temp: \(viewModel.posts)")
+        }.onAppear(perform: viewModel.getPosts)
     }
 }
 
