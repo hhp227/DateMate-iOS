@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Post {
-    var uid: String
+struct Post: Identifiable {
+    var id: String
     
     var author: String
     

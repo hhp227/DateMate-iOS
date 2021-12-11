@@ -21,10 +21,10 @@ class LoungeRepository {
     
     func getPosts() -> AnyPublisher<[Post], Error> {
         return postRef.observer(for: .value).tryMap { result in
-            return result.children.map { dataSnapshot -> Post in
+            result.children.map { dataSnapshot -> Post in
                 if let snapshot = dataSnapshot as? DataSnapshot, let dic = snapshot.value as? [String: Any] {
                     let post = Post.init(
-                        uid: dic["uid"] as! String,
+                        id: dic["uid"] as! String,
                         author: dic["author"] as! String,
                         title: dic["title"] as! String,
                         body: dic["body"] as! String,
@@ -61,6 +61,7 @@ extension DatabaseReference {
 extension Database {
     struct Publisher: Combine.Publisher {
         typealias Output = DataSnapshot
+        
         typealias Failure = Never
         
         private var reference: DatabaseReference
@@ -74,6 +75,7 @@ extension Database {
         
         func receive<S>(subscriber: S) where S: Subscriber, Publisher.Failure == S.Failure, Publisher.Output == S.Input {
             let subscription = Subscription(subscriber: subscriber, reference: reference, event: event)
+            
             subscriber.receive(subscription: subscription)
         }
     }

@@ -11,10 +11,19 @@ struct LoungeView: View {
     @ObservedObject var viewModel = LoungeViewModel(.init())
     
     var body: some View {
-        Text("Lounge").onTapGesture {
-            viewModel.test()
-            print("temp: \(viewModel.posts)")
+        VStack {
+            ForEach(viewModel.posts) { post in
+                PostCell(post: post)
+            }
         }.onAppear(perform: viewModel.getPosts)
+    }
+}
+
+struct PostCell: View {
+    var post: Post
+    
+    var body: some View {
+        Text(post.title)
     }
 }
 
