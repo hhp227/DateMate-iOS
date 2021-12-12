@@ -12,9 +12,12 @@ struct LoungeView: View {
     
     var body: some View {
         VStack {
-            ForEach(viewModel.posts) { post in
-                PostCell(post: post)
+            List {
+                ForEach(viewModel.posts) { post in
+                    PostCell(post: post)
+                }
             }
+            
         }.onAppear(perform: viewModel.getPosts)
     }
 }
@@ -23,7 +26,19 @@ struct PostCell: View {
     var post: Post
     
     var body: some View {
-        Text(post.title)
+        VStack(alignment: .leading) {
+            HStack {
+                Image(systemName: "person.fill").frame(width: 40, height: 40, alignment: .center)
+                Text(post.author)
+            }
+            VStack(alignment: .leading) {
+                Text(post.title).lineLimit(1)
+                Text(post.body)
+            }
+            NavigationLink(destination: PostDetailView()) {
+                EmptyView()
+            }.hidden()
+        }
     }
 }
 
