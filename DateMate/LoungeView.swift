@@ -17,7 +17,6 @@ struct LoungeView: View {
                     PostCell(post: post)
                 }
             }
-            
         }.onAppear(perform: viewModel.getPosts)
     }
 }
