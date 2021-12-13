@@ -11,13 +11,24 @@ struct LoungeView: View {
     @ObservedObject var viewModel = LoungeViewModel(.init())
     
     var body: some View {
-        VStack {
-            List {
-                ForEach(viewModel.posts) { post in
-                    PostCell(post: post)
+        ZStack {
+            VStack {
+                List {
+                    ForEach(viewModel.posts) { post in
+                        PostCell(post: post)
+                    }
+                }
+            }.onAppear(perform: viewModel.getPosts)
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    NavigationLink(destination: WriteView()) {
+                        Text("+").font(.system(.largeTitle)).frame(width: 66, height: 60).foregroundColor(.white).padding(.bottom, 7)
+                    }.background(Color.blue).cornerRadius(38.5).padding().shadow(color: Color.black.opacity(0.3), radius: 3, x: 3, y: 3).animation(.none)
                 }
             }
-        }.onAppear(perform: viewModel.getPosts)
+        }
     }
 }
 
