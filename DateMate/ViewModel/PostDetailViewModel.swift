@@ -8,5 +8,9 @@
 import Foundation
 
 class PostDetailViewModel: ObservableObject {
+    private let repository: PostDetailRepository
     
+    init(_ repository: PostDetailRepository) {
+        self.repository = repository
+    }
 }

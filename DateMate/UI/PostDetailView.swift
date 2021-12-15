@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PostDetailView: View {
+    @ObservedObject var viewModel = PostDetailViewModel(.init())
+    
     var body: some View {
         Text("Hello, World!")
     }

@@ -8,5 +8,17 @@
 import Foundation
 
 class WriteViewModel: ObservableObject {
+    @Published var title: String = ""
     
+    @Published var content: String = ""
+    
+    private let repository: WriteRepository
+    
+    init(_ repository: WriteRepository) {
+        self.repository = repository
+    }
+    
+    func actionSend() {
+        
+    }
 }

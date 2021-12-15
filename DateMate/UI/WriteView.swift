@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct WriteView: View {
+    @ObservedObject var viewModel = WriteViewModel(.init())
+    
     var body: some View {
-        Text("Hello, WriteView")
+        List {
+            ZStack {
+                TextEditor(text: $viewModel.title).autocapitalization(.none).keyboardType(.default).disableAutocorrection(true)
+            }.listRowInsets(EdgeInsets()).shadow(radius: 1)
+            ZStack {
+                TextEditor(text: $viewModel.content).autocapitalization(.none).keyboardType(.default).disableAutocorrection(true)
+                Text(viewModel.content).opacity(0).padding(.all, 8)
+            }.listRowInsets(EdgeInsets()).shadow(radius: 1)
+        }.navigationBarTitleDisplayMode(.inline).navigationBarItems(trailing: Button(action: viewModel.actionSend) { Text("Send") })
     }
 }
 
