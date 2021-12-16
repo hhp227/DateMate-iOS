@@ -14,11 +14,11 @@ struct LoungeView: View {
         ZStack {
             VStack {
                 List {
-                    ForEach(viewModel.posts) { post in
+                    ForEach(viewModel.state.posts) { post in
                         PostCell(post: post)
                     }
                 }
-            }.onAppear(perform: viewModel.getPosts)
+            }
             VStack {
                 Spacer()
                 HStack {
