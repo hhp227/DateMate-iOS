@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0ACC77276B808D00192C0B /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ACC76276B808D00192C0B /* Resource.swift */; };
 		0A1A6F60275B143D009C6A27 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A6F5F275B143D009C6A27 /* HomeView.swift */; };
 		0A1A6F63275B1451009C6A27 /* LoungeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A6F62275B1451009C6A27 /* LoungeView.swift */; };
 		0A1F0924275276500025C6E8 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F0923275276500025C6E8 /* SignInView.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A0ACC76276B808D00192C0B /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		0A1A6F5F275B143D009C6A27 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0A1A6F62275B1451009C6A27 /* LoungeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoungeView.swift; sourceTree = "<group>"; };
 		0A1F0923275276500025C6E8 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				0A71CD1B2763A96800F0C2C7 /* Post.swift */,
+				0A0ACC76276B808D00192C0B /* Resource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				0A1A6F60275B143D009C6A27 /* HomeView.swift in Sources */,
 				0AF55AC4275F9F120042D9F3 /* HomeViewModel.swift in Sources */,
 				0A3F40262753A9E900034106 /* SignInViewModel.swift in Sources */,
+				0A0ACC77276B808D00192C0B /* Resource.swift in Sources */,
 				0A2339F7276236EA00ED114F /* LoungeRepository.swift in Sources */,
 				0A1A6F63275B1451009C6A27 /* LoungeView.swift in Sources */,
 				0A71CD1C2763A96800F0C2C7 /* Post.swift in Sources */,
