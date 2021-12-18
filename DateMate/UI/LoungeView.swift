@@ -8,17 +8,11 @@
 import SwiftUI
 
 struct LoungeView: View {
-    @ObservedObject var viewModel = LoungeViewModel(.init())
+    @ObservedObject var viewModel = LoungeViewModel(GetPostsUseCaseImpl(.init()))
     
     var body: some View {
         ZStack {
-            VStack {
-                List {
-                    ForEach(viewModel.state.posts) { post in
-                        PostCell(post: post)
-                    }
-                }
-            }
+            content
             VStack {
                 Spacer()
                 HStack {
@@ -27,6 +21,21 @@ struct LoungeView: View {
                         Text("+").font(.system(.largeTitle)).frame(width: 66, height: 60).foregroundColor(.white).padding(.bottom, 7)
                     }.background(Color.blue).cornerRadius(38.5).padding().shadow(color: Color.black.opacity(0.3), radius: 3, x: 3, y: 3).animation(.none)
                 }
+            }
+        }
+    }
+    
+    var content: some View {
+        ZStack {
+            List {
+                ForEach(viewModel.state.posts) { post in
+                    PostCell(post: post)
+                }
+            }
+            if viewModel.state.isLoading {
+                ProgressView().progressViewStyle(CircularProgressViewStyle.init())
+            } else if !viewModel.state.error.isEmpty {
+                Text(viewModel.state.error).frame(alignment: Alignment.center).padding()
             }
         }
     }

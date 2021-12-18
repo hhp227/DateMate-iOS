@@ -11,12 +11,12 @@ import Combine
 class LoungeViewModel: ObservableObject {
     @Published var state = State()
     
-    private let repository: LoungeRepository
+    private let getPostUseCase: GetPostsUseCase
     
     private var subscription = Set<AnyCancellable>()
     
     private func getPosts() {
-        repository.getPosts().tryMap(postUseCase).receive(on: DispatchQueue.main).sink(receiveCompletion: onReceive, receiveValue: onReceive).store(in: &subscription)
+        getPostUseCase.execute().receive(on: DispatchQueue.main).sink(receiveCompletion: onReceive, receiveValue: onReceive).store(in: &subscription)
     }
     
     private func onReceive(_ result: Resource<[Post]>) {
@@ -30,14 +30,6 @@ class LoungeViewModel: ObservableObject {
         }
     }
     
-    private func postUseCase(_ batch: [Post]) -> Resource<[Post]> {
-        do {
-            return Resource.success(data: batch)
-        } catch {
-            return Resource.error(message: error.localizedDescription)
-        }
-    }
-    
     func onReceive(_ completion: Subscribers.Completion<Error>) {
         switch completion {
         case .finished:
@@ -48,11 +40,10 @@ class LoungeViewModel: ObservableObject {
     }
     
     func test() {
-        print("LoungeViewModel test \(repository.test())")
     }
     
-    init(_ repository: LoungeRepository) {
-        self.repository = repository
+    init(_ getPostUseCase: GetPostsUseCase) {
+        self.getPostUseCase = getPostUseCase
         
         getPosts()
     }

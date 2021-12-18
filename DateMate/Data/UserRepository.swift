@@ -7,21 +7,23 @@
 
 import Foundation
 import FirebaseAuth
+import Combine
 
 class UserRepository {
     let auth = Auth.auth()
     
     var user: User?
     
-    func signIn(email: String, password: String, result: @escaping (SignInState) -> Void) {
-        result(SignInState.Loading)
-        auth.signIn(withEmail: email, password: password) { authDataResult, error in
-            if authDataResult != nil {
-                result(SignInState.Success)
-            } else if error != nil {
-                result(SignInState.Failure)
+    func signIn(email: String, password: String) -> AnyPublisher<AuthDataResult, Error> {
+        Future { promise in
+            self.auth.signIn(withEmail: email, password: password) { authDataResult, error in
+                if let auth = authDataResult {
+                    promise(.success(auth))
+                } else if let error = error {
+                    promise(.failure(error))
+                }
             }
-        }
+        }.eraseToAnyPublisher()
     }
     
     func signOut() {
@@ -39,10 +41,4 @@ class UserRepository {
     func getCurrentUser() -> User? {
         return auth.currentUser
     }
-}
-
-enum SignInState {
-    case Success
-    case Loading
-    case Failure
 }
