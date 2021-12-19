@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0361D6276F524E00228A1F /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0361D5276F524E00228A1F /* SignInUseCase.swift */; };
 		0A0ACC77276B808D00192C0B /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ACC76276B808D00192C0B /* Resource.swift */; };
 		0A1379B4276D8B2800A34E96 /* GetPostsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1379B3276D8B2800A34E96 /* GetPostsUseCase.swift */; };
 		0A1A6F60275B143D009C6A27 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A6F5F275B143D009C6A27 /* HomeView.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A0361D5276F524E00228A1F /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
 		0A0ACC76276B808D00192C0B /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		0A1379B3276D8B2800A34E96 /* GetPostsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPostsUseCase.swift; sourceTree = "<group>"; };
 		0A1A6F5F275B143D009C6A27 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				0A1379B3276D8B2800A34E96 /* GetPostsUseCase.swift */,
+				0A0361D5276F524E00228A1F /* SignInUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				0A3F40302753B38700034106 /* SignUpView.swift in Sources */,
 				0A3F8E38274E765000DD11F9 /* ContentView.swift in Sources */,
 				0A3F8E36274E765000DD11F9 /* DateMateApp.swift in Sources */,
+				0A0361D6276F524E00228A1F /* SignInUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

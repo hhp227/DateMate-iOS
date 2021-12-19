@@ -18,11 +18,6 @@ class SignInViewModel: ObservableObject {
     
     private var subscription = Set<AnyCancellable>()
     
-    init(_ repository: UserRepository) {
-        self.repository = repository
-        self.signInResult = SignInResult(repository.getCurrentUser() != nil)
-    }
-    
     // TODO UseCase에서 처리
     private func isEmailValid(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -61,6 +56,11 @@ class SignInViewModel: ObservableObject {
     
     func signOut() {
         
+    }
+    
+    init(_ repository: UserRepository) {
+        self.repository = repository
+        self.signInResult = SignInResult(repository.getCurrentUser() != nil)
     }
     
     struct SignInResult {

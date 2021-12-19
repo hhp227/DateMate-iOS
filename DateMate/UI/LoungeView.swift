@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoungeView: View {
-    @ObservedObject var viewModel = LoungeViewModel(GetPostsUseCaseImpl(.init()))
+    @ObservedObject var viewModel = LoungeViewModel(.init())
     
     var body: some View {
         ZStack {
