@@ -12,13 +12,10 @@ import Combine
 class SignInViewModel: ObservableObject {
     @Published var signInResult: SignInResult
     
-    //TODO UseCase로 교체
-    
     private let repository: UserRepository
     
     private var subscription = Set<AnyCancellable>()
-    
-    // TODO UseCase에서 처리
+
     private func isEmailValid(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         return email.contains("@") ? NSPredicate(format: "SELF MATCHES %@", emailRegEx).evaluate(with: email) : !email.isEmpty
