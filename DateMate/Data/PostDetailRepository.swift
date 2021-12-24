@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 class PostDetailRepository {
-    
+    private let rootRef = Database.database().reference()
+
 }
