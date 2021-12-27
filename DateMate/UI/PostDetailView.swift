@@ -8,10 +8,21 @@
 import SwiftUI
 
 struct PostDetailView: View {
-    @ObservedObject var viewModel = PostDetailViewModel(.init())
+    @EnvironmentObject var viewModel: PostDetailViewModel
     
     var body: some View {
-        Text("Hello, World!")
+        if let post = viewModel.state.post {
+            VStack(alignment: .leading) {
+                HStack {
+                    Image(systemName: "person.fill").frame(width: 40, height: 40, alignment: .center)
+                    Text(post.author)
+                }
+                VStack(alignment: .leading) {
+                    Text(post.title).lineLimit(1)
+                    Text(post.body)
+                }
+            }
+        }
     }
 }
 

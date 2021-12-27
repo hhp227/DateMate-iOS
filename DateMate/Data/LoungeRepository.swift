@@ -29,7 +29,8 @@ class LoungeRepository {
                         title: dic["title"] as! String,
                         body: dic["body"] as! String,
                         starCount: dic["starCount"] as! Int,
-                        stars: [:]
+                        stars: [:],
+                        key: snapshot.key
                     )
                     return post
                 } else {

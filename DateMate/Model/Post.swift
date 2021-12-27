@@ -19,4 +19,6 @@ struct Post: Identifiable {
     var starCount: Int
     
     var stars: [String: Bool]
+    
+    var key: String
 }
