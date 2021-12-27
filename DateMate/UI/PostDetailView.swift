@@ -11,15 +11,17 @@ struct PostDetailView: View {
     @EnvironmentObject var viewModel: PostDetailViewModel
     
     var body: some View {
-        if let post = viewModel.state.post {
-            VStack(alignment: .leading) {
-                HStack {
-                    Image(systemName: "person.fill").frame(width: 40, height: 40, alignment: .center)
-                    Text(post.author)
-                }
+        List {
+            if let post = viewModel.state.post {
                 VStack(alignment: .leading) {
-                    Text(post.title).lineLimit(1)
-                    Text(post.body)
+                    HStack {
+                        Image(systemName: "person.fill").frame(width: 40, height: 40, alignment: .center)
+                        Text(post.author)
+                    }
+                    VStack(alignment: .leading) {
+                        Text(post.title).lineLimit(1)
+                        Text(post.body)
+                    }
                 }
             }
         }
