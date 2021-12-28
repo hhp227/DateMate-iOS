@@ -19,6 +19,10 @@ class PostDetailViewModel: ObservableObject {
         repository.getPost(key).tryMap(getPostUseCase).sink(receiveCompletion: onReceive, receiveValue: onReceive).store(in: &subscription)
     }
     
+    private func getComments(_ key: String) {
+        repository.getComments(key).sink(receiveCompletion: onReceive, receiveValue: onReceive).store(in: &subscription)
+    }
+    
     private func getPostUseCase(post: Post) -> Resource<Post> {
         do {
             return Resource.success(data: post)
@@ -38,6 +42,10 @@ class PostDetailViewModel: ObservableObject {
         }
     }
     
+    private func onReceive(_ result: [Comment]) {
+        print("result: \(result)")
+    }
+    
     func onReceive(_ completion: Subscribers.Completion<Error>) {
         switch completion {
         case .finished:
@@ -51,6 +59,7 @@ class PostDetailViewModel: ObservableObject {
         self.repository = repository
         
         getPost(key)
+        getComments(key)
     }
     
     struct State {
