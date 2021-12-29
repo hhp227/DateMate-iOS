@@ -11,6 +11,8 @@ import Combine
 class PostDetailViewModel: ObservableObject {
     @Published var state = State()
     
+    @Published var message = ""
+    
     private let repository: PostDetailRepository
     
     private var subscription = Set<AnyCancellable>()
@@ -20,12 +22,20 @@ class PostDetailViewModel: ObservableObject {
     }
     
     private func getComments(_ key: String) {
-        repository.getComments(key).sink(receiveCompletion: onReceive, receiveValue: onReceive).store(in: &subscription)
+        repository.getComments(key).tryMap(getCommentsUseCase).sink(receiveCompletion: onReceive, receiveValue: onReceive).store(in: &subscription)
     }
     
     private func getPostUseCase(post: Post) -> Resource<Post> {
         do {
             return Resource.success(data: post)
+        } catch {
+            return Resource.error(message: error.localizedDescription)
+        }
+    }
+    
+    private func getCommentsUseCase(comments: [Comment]) -> Resource<[Comment]> {
+        do {
+            return Resource.success(data: comments)
         } catch {
             return Resource.error(message: error.localizedDescription)
         }
@@ -42,8 +52,15 @@ class PostDetailViewModel: ObservableObject {
         }
     }
     
-    private func onReceive(_ result: [Comment]) {
-        print("result: \(result)")
+    private func onReceive(_ result: Resource<[Comment]>) {
+        switch result.state {
+        case .Success:
+            self.state.comments = result.data ?? []
+        case .Error:
+            self.state.error = result.message ?? "An unexpected error occured"
+        case .Loading:
+            self.state.isLoading = true
+        }
     }
     
     func onReceive(_ completion: Subscribers.Completion<Error>) {
@@ -55,6 +72,10 @@ class PostDetailViewModel: ObservableObject {
         }
     }
     
+    func addComment() {
+
+    }
+    
     init(_ repository: PostDetailRepository, _ key: String) {
         self.repository = repository
         
@@ -63,10 +84,12 @@ class PostDetailViewModel: ObservableObject {
     }
     
     struct State {
-        var isLoading = false
+        var isLoading: Bool = false
         
         var post: Post? = nil
         
-        var error = ""
+        var comments: [Comment] = []
+        
+        var error: String = ""
     }
 }

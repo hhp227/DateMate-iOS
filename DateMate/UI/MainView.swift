@@ -10,6 +10,8 @@ import SwiftUI
 struct MainView: View {
     @EnvironmentObject var signInViewModel: SignInViewModel
     
+    @State var isShowingActionSheet = false
+    
     var body: some View {
         NavigationView {
             TabView {
@@ -21,7 +23,17 @@ struct MainView: View {
                     Image(systemName: "text.bubble")
                     Text("Lounge")
                 }
-            }.navigationTitle("Datemate").navigationBarTitleDisplayMode(.inline)
+            }.navigationTitle("Datemate").navigationBarTitleDisplayMode(.inline).navigationBarItems(trailing: Button(action: { isShowingActionSheet.toggle() }) {
+                Image(systemName: "ellipsis")
+            }).actionSheet(isPresented: $isShowingActionSheet) {
+                ActionSheet(
+                    title: Text("Selection Action"),
+                    buttons: [
+                        .default(Text("Sign Out")) { signInViewModel.signOut() },
+                        .cancel()
+                    ]
+                )
+            }
         }
     }
 }

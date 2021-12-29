@@ -28,7 +28,7 @@ struct LoungeView: View {
     var content: some View {
         ZStack {
             List {
-                ForEach(viewModel.state.posts) { post in
+                ForEach(viewModel.state.posts, id: \.id) { post in
                     PostCell(post: post)
                 }
             }
@@ -42,7 +42,7 @@ struct LoungeView: View {
 }
 
 struct PostCell: View {
-    var post: Post
+    let post: Post
     
     var body: some View {
         VStack(alignment: .leading) {

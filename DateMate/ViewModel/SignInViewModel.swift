@@ -52,7 +52,7 @@ class SignInViewModel: ObservableObject {
     }
     
     func signOut() {
-        
+        repository.signOut()
     }
     
     init(_ repository: UserRepository) {

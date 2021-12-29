@@ -6,11 +6,9 @@
 //
 
 import Foundation
-import FirebaseAuth
 
 class HomeViewModel: ObservableObject {
     func test() {
         print("HomeViewModel test")
-        try? Auth.auth().signOut()
     }
 }
