@@ -29,6 +29,8 @@ struct LoungeView: View {
         ZStack {
             List {
                 ForEach(viewModel.state.posts, id: \.id) { post in
+                    
+                    // TODO 이상한 버그 있으므로 체크하고 갈것
                     PostCell(post: post)
                 }
             }
