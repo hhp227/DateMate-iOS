@@ -28,9 +28,7 @@ struct LoungeView: View {
     var content: some View {
         ZStack {
             List {
-                ForEach(viewModel.state.posts, id: \.id) { post in
-                    
-                    // TODO 이상한 버그 있으므로 체크하고 갈것
+                ForEach(Array(viewModel.state.posts.enumerated()), id: \.offset) { i, post in
                     PostCell(post: post)
                 }
             }
