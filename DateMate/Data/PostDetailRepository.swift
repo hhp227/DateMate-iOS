@@ -50,6 +50,10 @@ class PostDetailRepository {
         }.eraseToAnyPublisher()
     }
     
+    func addComment() {
+        print("Test: addComment")
+    }
+    
     init() {
         self.rootRef = Database.database().reference()
         self.postRef = rootRef.child("posts")

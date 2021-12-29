@@ -73,7 +73,7 @@ class PostDetailViewModel: ObservableObject {
     }
     
     func addComment() {
-
+        repository.addComment()
     }
     
     init(_ repository: PostDetailRepository, _ key: String) {

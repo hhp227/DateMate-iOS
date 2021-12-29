@@ -71,3 +71,116 @@ extension Database {
         }
     }
 }
+
+// DatabaseReference+Combine
+public typealias DatabaseReferenceTransactionResult = (committed: Bool, snapshot: DataSnapshot?)
+
+extension DatabaseReference {
+    public func setValue(_ value: Any?, andPriority priority: Any? = nil) -> Future<DatabaseReference, Error> {
+        Future<DatabaseReference, Error> { [weak self] promise in
+            self?.setValue(value, andPriority: priority, withCompletionBlock: { (error, ref) in
+                if let error = error {
+                    promise(.failure(error))
+                } else {
+                    promise(.success(ref))
+                }
+            })
+        }
+    }
+    
+    public func removeValue() -> Future<DatabaseReference, Error> {
+        Future<DatabaseReference, Error> { [weak self] promise in
+            self?.removeValue(completionBlock: { (error, ref) in
+                if let error = error {
+                    promise(.failure(error))
+                } else {
+                    promise(.success(ref))
+                }
+            })
+        }
+    }
+    
+    public func setPriority(_ priority: Any?) -> Future<DatabaseReference, Error> {
+        Future<DatabaseReference, Error> { [weak self] promise in
+            self?.setPriority(priority, withCompletionBlock: { (error, ref) in
+                if let error = error {
+                    promise(.failure(error))
+                } else {
+                    promise(.success(ref))
+                }
+            })
+        }
+    }
+    
+    public func updateChildValues(_ values: [AnyHashable: Any]) -> Future<DatabaseReference, Error> {
+        Future<DatabaseReference, Error> { [weak self] promise in
+            self?.updateChildValues(values, withCompletionBlock: { (error, ref) in
+                if let error = error {
+                    promise(.failure(error))
+                } else {
+                    promise(.success(ref))
+                }
+            })
+        }
+    }
+    
+    public func onDisconnectSetValue(_ value: Any?, andPriority priority: Any? = nil) -> Future<DatabaseReference, Error> {
+        Future<DatabaseReference, Error> { [weak self] promise in
+            self?.onDisconnectSetValue(value, andPriority: priority, withCompletionBlock: { (error, ref) in
+                if let error = error {
+                    promise(.failure(error))
+                } else {
+                    promise(.success(ref))
+                }
+            })
+        }
+    }
+    
+    public func onDisconnectRemoveValue() -> Future<DatabaseReference, Error> {
+        Future<DatabaseReference, Error> { [weak self] promise in
+            self?.onDisconnectRemoveValue(completionBlock: { (error, ref) in
+                if let error = error {
+                    promise(.failure(error))
+                } else {
+                    promise(.success(ref))
+                }
+            })
+        }
+    }
+    
+    public func onDisconnectUpdateChildValues(_ values: [AnyHashable: Any]) -> Future<DatabaseReference, Error> {
+        Future<DatabaseReference, Error> { [weak self] promise in
+            self?.onDisconnectUpdateChildValues(values, withCompletionBlock: { (error, ref) in
+                if let error = error {
+                    promise(.failure(error))
+                } else {
+                    promise(.success(ref))
+                }
+            })
+        }
+    }
+    
+    public func cancelDisconnectOperations() -> Future<DatabaseReference, Error> {
+        Future<DatabaseReference, Error> { [weak self] promise in
+            self?.cancelDisconnectOperations(completionBlock: { (error, ref) in
+                if let error = error {
+                    promise(.failure(error))
+                } else {
+                    promise(.success(ref))
+                }
+            })
+        }
+    }
+    
+    public func runTransactionBlock(_ block: @escaping (MutableData) -> TransactionResult, withLocalEvents: Bool = true) -> Future<DatabaseReferenceTransactionResult, Error> {
+        Future<DatabaseReferenceTransactionResult, Error> { [weak self] promise in
+            self?.runTransactionBlock(block, andCompletionBlock: { (error, committed, snapshot) in
+                if let error = error {
+                    promise(.failure(error))
+                } else {
+                    promise(.success(DatabaseReferenceTransactionResult(committed, snapshot)))
+                }
+            })
+        }
+    }
+}
