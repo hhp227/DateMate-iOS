@@ -19,6 +19,6 @@ class WriteViewModel: ObservableObject {
     }
     
     func actionSend() {
-        print("send")
+        repository.addPost(title, content)
     }
 }

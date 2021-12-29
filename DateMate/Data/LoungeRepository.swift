@@ -14,11 +14,6 @@ class LoungeRepository {
     
     private var postRef: DatabaseReference
     
-    init() {
-        self.rootRef = Database.database().reference()
-        self.postRef = rootRef.child("posts")
-    }
-    
     func getPosts() -> AnyPublisher<[Post], Error> {
         return postRef.observer(for: .value).tryMap { result in
             result.children.map { dataSnapshot -> Post in
@@ -42,6 +37,11 @@ class LoungeRepository {
     
     func test() -> String {
         return "헬로우"
+    }
+    
+    init() {
+        self.rootRef = Database.database().reference()
+        self.postRef = rootRef.child("posts")
     }
 }
 
