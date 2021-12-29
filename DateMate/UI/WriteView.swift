@@ -15,6 +15,11 @@ struct WriteView: View {
             ZStack {
                 TextEditor(text: $viewModel.title).autocapitalization(.none).keyboardType(.default).disableAutocorrection(true)
             }.listRowInsets(EdgeInsets()).shadow(radius: 1)
+            /*Form {
+                Section {
+                    TextField("Title", text: $viewModel.title).keyboardType(.default)
+                }
+            }*/
             ZStack {
                 TextEditor(text: $viewModel.content).autocapitalization(.none).keyboardType(.default).disableAutocorrection(true)
                 Text(viewModel.content).opacity(0).padding(.all, 8)

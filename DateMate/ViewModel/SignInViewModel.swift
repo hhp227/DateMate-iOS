@@ -52,6 +52,8 @@ class SignInViewModel: ObservableObject {
     }
     
     func signOut() {
+        self.signInResult = SignInResult(false)
+        
         repository.signOut()
     }
     
