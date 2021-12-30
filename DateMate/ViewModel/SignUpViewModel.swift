@@ -6,16 +6,39 @@
 //
 
 import Foundation
-import Firebase
+import Combine
+import FirebaseAuth
 
 class SignUpViewModel: ObservableObject {
-    let repository: UserRepository
+    private let repository: UserRepository
+    
+    private var subscription = Set<AnyCancellable>()
+    
+    private func onReceive(_ completion: Subscribers.Completion<Error>) {
+        switch completion {
+        case .finished:
+            break
+        case .failure:
+            break
+        }
+    }
+    
+    func onReceive(_ result: AuthDataResult) {
+        print("onReceive: \(result)")
+    }
     
     func signUp(email: String, password: String) {
-        repository.signUp(email: email, password: password)
+        guard !email.isEmpty, !password.isEmpty else {
+            return
+        }
+        repository.signUp(email: email, password: password).sink(receiveCompletion: onReceive, receiveValue: onReceive).store(in: &subscription)
     }
     
     init(_ repository: UserRepository) {
         self.repository = repository
+    }
+    
+    deinit {
+        subscription.removeAll()
     }
 }
