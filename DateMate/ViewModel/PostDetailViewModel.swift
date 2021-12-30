@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import FirebaseDatabase
 
 class PostDetailViewModel: ObservableObject {
     @Published var state = State()
@@ -14,6 +15,8 @@ class PostDetailViewModel: ObservableObject {
     @Published var message = ""
     
     private let repository: PostDetailRepository
+    
+    private let postKey: String
     
     private var subscription = Set<AnyCancellable>()
     
@@ -63,6 +66,10 @@ class PostDetailViewModel: ObservableObject {
         }
     }
     
+    private func onReceive(_ result: DatabaseReference) {
+        print("Test: \(result)")
+    }
+    
     func onReceive(_ completion: Subscribers.Completion<Error>) {
         switch completion {
         case .finished:
@@ -73,11 +80,15 @@ class PostDetailViewModel: ObservableObject {
     }
     
     func addComment() {
-        repository.addComment()
+        guard !message.isEmpty else {
+            return
+        }
+        repository.addComment(postKey, message).sink(receiveCompletion: onReceive, receiveValue: onReceive).store(in: &subscription)
     }
     
     init(_ repository: PostDetailRepository, _ key: String) {
         self.repository = repository
+        self.postKey = key
         
         getPost(key)
         getComments(key)

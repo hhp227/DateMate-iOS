@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseDatabase
 import Combine
+import FirebaseAuth
 
 class PostDetailRepository {
     private let rootRef: DatabaseReference
@@ -50,8 +51,20 @@ class PostDetailRepository {
         }.eraseToAnyPublisher()
     }
     
-    func addComment() {
-        print("Test: addComment")
+    func addComment(_ postKey: String, _ text: String) -> AnyPublisher<DatabaseReference, Error> {
+        // TODO 에러가 남
+        let user = Auth.auth().currentUser
+        
+        if let uid = user?.uid, let username = user?.email?.split(separator: "@").first {
+            let dic: [String: Any] = [
+                "uid": uid,
+                "author": username,
+                "text": text
+            ]
+            return commentRef.child(postKey).setValue(dic).eraseToAnyPublisher()
+        } else {
+            fatalError()
+        }
     }
     
     init() {

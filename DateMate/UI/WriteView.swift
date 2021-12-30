@@ -8,23 +8,32 @@
 import SwiftUI
 
 struct WriteView: View {
-    @ObservedObject var viewModel = WriteViewModel(.init())
+    @EnvironmentObject var viewModel: WriteViewModel
+    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         List {
             ZStack {
                 TextEditor(text: $viewModel.title).autocapitalization(.none).keyboardType(.default).disableAutocorrection(true)
             }.listRowInsets(EdgeInsets()).shadow(radius: 1)
-            /*Form {
-                Section {
-                    TextField("Title", text: $viewModel.title).keyboardType(.default)
-                }
-            }*/
             ZStack {
                 TextEditor(text: $viewModel.content).autocapitalization(.none).keyboardType(.default).disableAutocorrection(true)
                 Text(viewModel.content).opacity(0).padding(.all, 8)
             }.listRowInsets(EdgeInsets()).shadow(radius: 1)
-        }.navigationBarTitleDisplayMode(.inline).navigationBarItems(trailing: Button(action: viewModel.actionSend) { Text("Send") })
+            /*VStack {
+                TextField("Enter title", text: $viewModel.title)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            }.listRowInsets(EdgeInsets()).shadow(radius: 1)
+            TextEditor(text: $viewModel.content)
+                .frame(height: 180)
+                .overlay(RoundedRectangle(cornerRadius: 4)
+                            .stroke(Color("TextColor").opacity(0.2), lineWidth: 1)).listRowInsets(EdgeInsets()).shadow(radius: 1)*/
+        }.navigationBarTitleDisplayMode(.inline).navigationBarItems(trailing: Button(action: viewModel.actionSend) { Text("Send") }).onReceive(viewModel.$state) { state in
+            if state.success {
+                presentationMode.wrappedValue.dismiss()
+            }
+        }
     }
 }
 
