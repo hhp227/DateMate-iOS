@@ -9,13 +9,13 @@ import Foundation
 import Firebase
 
 class SignUpViewModel: ObservableObject {
-    let auth = Auth.auth()
+    let repository: UserRepository
     
     func signUp(email: String, password: String) {
-        auth.createUser(withEmail: email, password: password) { result, error in
-            guard result != nil, error == nil else {
-                return
-            }
-        }
+        repository.signUp(email: email, password: password)
+    }
+    
+    init(_ repository: UserRepository) {
+        self.repository = repository
     }
 }

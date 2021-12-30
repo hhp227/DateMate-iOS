@@ -30,12 +30,16 @@ class UserRepository {
         try? auth.signOut()
     }
     
-    func signUp(email: String, password: String) {
-        auth.createUser(withEmail: email, password: password) { authDataResult, error in
-            guard authDataResult != nil, error == nil else {
-                return
+    func signUp(email: String, password: String) -> AnyPublisher<AuthDataResult, Error> {
+        Future { promise in
+            self.auth.createUser(withEmail: email, password: password) { authDataResult, error in
+                if let auth = authDataResult {
+                    promise(.success(auth))
+                } else if let error = error {
+                    promise(.failure(error))
+                }
             }
-        }
+        }.eraseToAnyPublisher()
     }
     
     func getCurrentUser() -> User? {
