@@ -25,7 +25,7 @@ struct PostDetailView: View {
                         }
                     }
                 }
-                ForEach(viewModel.state.comments) { comment in
+                ForEach(Array(viewModel.state.comments.enumerated()), id: \.offset) { i, comment in
                     CommentCell(comment: comment)
                 }
             }
