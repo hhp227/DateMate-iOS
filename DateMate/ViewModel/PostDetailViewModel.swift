@@ -94,6 +94,10 @@ class PostDetailViewModel: ObservableObject {
         getComments(key)
     }
     
+    deinit {
+        subscription.removeAll()
+    }
+    
     struct State {
         var isLoading: Bool = false
         

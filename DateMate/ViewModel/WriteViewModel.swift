@@ -45,6 +45,10 @@ class WriteViewModel: ObservableObject {
         self.repository = repository
     }
     
+    deinit {
+        subscription.removeAll()
+    }
+    
     struct State {
         var success: Bool
         

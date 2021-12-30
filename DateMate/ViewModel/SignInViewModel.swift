@@ -62,6 +62,10 @@ class SignInViewModel: ObservableObject {
         self.signInResult = SignInResult(repository.getCurrentUser() != nil)
     }
     
+    deinit {
+        subscription.removeAll()
+    }
+    
     struct SignInResult {
         let success: Bool
         

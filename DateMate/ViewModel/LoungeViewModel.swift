@@ -56,6 +56,10 @@ class LoungeViewModel: ObservableObject {
         getPosts()
     }
     
+    deinit {
+        subscription.removeAll()
+    }
+    
     struct State {
         var isLoading = false
         
