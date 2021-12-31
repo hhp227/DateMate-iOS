@@ -51,18 +51,17 @@ class PostDetailRepository {
         }.eraseToAnyPublisher()
     }
     
-    func addComment(_ postKey: String, _ text: String) -> AnyPublisher<DatabaseReference, Error> {
-        // TODO Comment추가하는거 자체가 에러가 남
+    func addComment(_ key: String, _ text: String) -> AnyPublisher<DatabaseReference, Error> {
         // user 가져오는것도 다시 생각해볼것
         guard let user = Auth.auth().currentUser, let username = user.email?.split(separator: "@").first else {
             fatalError()
         }
         let dic: [String: Any] = [
-            "uid": user.uid,
             "author": username,
-            "text": text
+            "text": text,
+            "uid": user.uid
         ]
-        return commentRef.child(postKey).setValue(dic).eraseToAnyPublisher()
+        return commentRef.child(key).childByAutoId().setValue(dic).eraseToAnyPublisher()
     }
     
     init() {

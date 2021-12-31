@@ -67,7 +67,7 @@ class PostDetailViewModel: ObservableObject {
     }
     
     private func onReceive(_ result: DatabaseReference) {
-        print("Test: \(result)")
+        message = ""
     }
     
     func onReceive(_ completion: Subscribers.Completion<Error>) {
