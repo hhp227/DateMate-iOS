@@ -38,6 +38,10 @@ struct PostDetailView: View {
                     }
                 }.padding(5)
             }
+        }.onReceive(viewModel.$isMyPost) { isMyPost in
+            if isMyPost {
+                print("This is my Post")
+            }
         }
     }
 }

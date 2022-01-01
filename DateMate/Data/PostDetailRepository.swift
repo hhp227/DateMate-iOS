@@ -16,6 +16,8 @@ class PostDetailRepository {
     private let postRef: DatabaseReference
     
     private let commentRef: DatabaseReference
+    
+    private let userPostRef: DatabaseReference
 
     func getPost(_ key: String) -> AnyPublisher<Post, Error> {
         return postRef.child(key).observer(for: .value).tryMap { result in
@@ -51,6 +53,13 @@ class PostDetailRepository {
         }.eraseToAnyPublisher()
     }
     
+    func getUserPostKeys(_ key: String) -> AnyPublisher<[String], Error> {
+        guard let user = Auth.auth().currentUser else { fatalError() }
+        return userPostRef.child(user.uid).observer(for: .value).tryMap { dataSnapshot in
+            dataSnapshot.children.map { ($0 as! DataSnapshot).key }
+        }.eraseToAnyPublisher()
+    }
+    
     func addComment(_ key: String, _ text: String) -> AnyPublisher<DatabaseReference, Error> {
         // user 가져오는것도 다시 생각해볼것
         guard let user = Auth.auth().currentUser, let username = user.email?.split(separator: "@").first else {
@@ -67,6 +76,7 @@ class PostDetailRepository {
     init() {
         self.rootRef = Database.database().reference()
         self.postRef = rootRef.child("posts")
+        self.userPostRef = rootRef.child("user-posts")
         self.commentRef = rootRef.child("post-comments")
     }
 }

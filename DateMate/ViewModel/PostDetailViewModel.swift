@@ -16,6 +16,8 @@ class PostDetailViewModel: ObservableObject {
     
     @Published var isShowingActionSheet = false
     
+    @Published var isMyPost = false
+    
     private let repository: PostDetailRepository
     
     private let postKey: String
@@ -28,6 +30,10 @@ class PostDetailViewModel: ObservableObject {
     
     private func getComments(_ key: String) {
         repository.getComments(key).tryMap(getCommentsUseCase).sink(receiveCompletion: onReceive, receiveValue: onReceive).store(in: &subscription)
+    }
+    
+    private func getUserPostKeys(_ key: String) {
+        repository.getUserPostKeys(key).sink(receiveCompletion: onReceive, receiveValue: onReceive).store(in: &subscription)
     }
     
     private func getPostUseCase(post: Post) -> Resource<Post> {
@@ -72,6 +78,10 @@ class PostDetailViewModel: ObservableObject {
         message = ""
     }
     
+    private func onReceive(_ keys: [String]) {
+        isMyPost = keys.contains(postKey)
+    }
+    
     func onReceive(_ completion: Subscribers.Completion<Error>) {
         switch completion {
         case .finished:
@@ -98,6 +108,7 @@ class PostDetailViewModel: ObservableObject {
         
         getPost(key)
         getComments(key)
+        getUserPostKeys(key)
     }
     
     deinit {
