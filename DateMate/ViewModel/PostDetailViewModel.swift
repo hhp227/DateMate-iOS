@@ -14,6 +14,8 @@ class PostDetailViewModel: ObservableObject {
     
     @Published var message = ""
     
+    @Published var isShowingActionSheet = false
+    
     private let repository: PostDetailRepository
     
     private let postKey: String
@@ -77,6 +79,10 @@ class PostDetailViewModel: ObservableObject {
         case .failure:
             break
         }
+    }
+    
+    func removePost() {
+        print("removePost, \(postKey)")
     }
     
     func addComment() {
