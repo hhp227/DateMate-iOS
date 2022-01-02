@@ -38,11 +38,9 @@ struct PostDetailView: View {
                     }
                 }.padding(5)
             }
-        }.onReceive(viewModel.$isMyPost) { isMyPost in
-            if isMyPost {
-                print("This is my Post")
-            }
-        }
+        }.navigationBarItems(trailing: viewModel.isMyPost ? Button(action: { viewModel.isShowingActionSheet.toggle() }) {
+            Image(systemName: "ellipsis")
+        } : nil)
     }
 }
 
