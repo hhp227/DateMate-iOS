@@ -40,7 +40,15 @@ struct PostDetailView: View {
             }
         }.navigationBarItems(trailing: viewModel.isMyPost ? Button(action: { viewModel.isShowingActionSheet.toggle() }) {
             Image(systemName: "ellipsis")
-        } : nil)
+        } : nil).actionSheet(isPresented: $viewModel.isShowingActionSheet) {
+            ActionSheet(
+                title: Text("Selection Action"),
+                buttons: [
+                    .default(Text("Remove Post")) { viewModel.removePost() },
+                    .cancel()
+                ]
+            )
+        }
     }
 }
 
