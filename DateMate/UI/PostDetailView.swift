@@ -13,7 +13,7 @@ struct PostDetailView: View {
     var body: some View {
         VStack(spacing: 0) {
             List {
-                if let post = viewModel.state.post {
+                if let post = viewModel.postState.post {
                     VStack(alignment: .leading) {
                         HStack {
                             Image(systemName: "person.fill").frame(width: 40, height: 40, alignment: .center)
@@ -25,7 +25,7 @@ struct PostDetailView: View {
                         }
                     }
                 }
-                ForEach(Array(viewModel.state.comments.enumerated()), id: \.offset) { i, comment in
+                ForEach(Array(viewModel.commentsState.comments.enumerated()), id: \.offset) { i, comment in
                     CommentCell(comment: comment)
                 }
             }

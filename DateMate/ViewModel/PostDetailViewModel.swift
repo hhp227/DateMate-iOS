@@ -10,7 +10,9 @@ import Combine
 import FirebaseDatabase
 
 class PostDetailViewModel: ObservableObject {
-    @Published var state = State()
+    @Published var postState = PostState()
+    
+    @Published var commentsState = CommentsState()
     
     @Published var message = ""
     
@@ -55,22 +57,22 @@ class PostDetailViewModel: ObservableObject {
     private func onReceive(_ result: Resource<Post>) {
         switch result.state {
         case .Success:
-            self.state = State(post: result.data)
+            self.postState = PostState(post: result.data)
         case .Error:
-            self.state = State(error: result.message ?? "An unexpected error occured")
+            self.postState = PostState(error: result.message ?? "An unexpected error occured")
         case .Loading:
-            self.state = State(isLoading: true)
+            self.postState = PostState(isLoading: true)
         }
     }
     
     private func onReceive(_ result: Resource<[Comment]>) {
         switch result.state {
         case .Success:
-            self.state.comments = result.data ?? []
+            self.commentsState = CommentsState(comments: result.data ?? [])
         case .Error:
-            self.state.error = result.message ?? "An unexpected error occured"
+            self.commentsState = CommentsState(error: result.message ?? "An unexpected error occured")
         case .Loading:
-            self.state.isLoading = true
+            self.commentsState = CommentsState(isLoading: true)
         }
     }
     
@@ -115,10 +117,16 @@ class PostDetailViewModel: ObservableObject {
         subscription.removeAll()
     }
     
-    struct State {
+    struct PostState {
         var isLoading: Bool = false
         
         var post: Post? = nil
+        
+        var error: String = ""
+    }
+    
+    struct CommentsState {
+        var isLoading: Bool = false
         
         var comments: [Comment] = []
         
