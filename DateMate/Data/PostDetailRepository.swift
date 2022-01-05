@@ -60,6 +60,10 @@ class PostDetailRepository {
         }.eraseToAnyPublisher()
     }
     
+    func removePost(_ key: String) {
+        print("removePost: \(key)")
+    }
+    
     func addComment(_ key: String, _ text: String) -> AnyPublisher<DatabaseReference, Error> {
         // user 가져오는것도 다시 생각해볼것
         guard let user = Auth.auth().currentUser, let username = user.email?.split(separator: "@").first else {

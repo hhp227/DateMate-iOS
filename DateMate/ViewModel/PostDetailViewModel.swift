@@ -94,7 +94,7 @@ class PostDetailViewModel: ObservableObject {
     }
     
     func removePost() {
-        print("removePost, \(postKey)")
+        repository.removePost(postKey)
     }
     
     func addComment() {
