@@ -66,7 +66,6 @@ class PostDetailRepository {
             dataSnapshot.childSnapshot(forPath: key)
             print("test: \(dataSnapshot.childSnapshot(forPath: key))")
         }
-        print("removePost: \(key)")
     }
     
     func addComment(_ key: String, _ text: String) -> AnyPublisher<DatabaseReference, Error> {
