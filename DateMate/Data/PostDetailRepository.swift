@@ -63,7 +63,6 @@ class PostDetailRepository {
     func removePost(_ key: String) {
         guard let user = Auth.auth().currentUser else { fatalError() }
         userPostRef.child(user.uid).getData { error, dataSnapshot in
-            dataSnapshot.childSnapshot(forPath: key)
             print("test: \(dataSnapshot.childSnapshot(forPath: key))")
         }
     }
