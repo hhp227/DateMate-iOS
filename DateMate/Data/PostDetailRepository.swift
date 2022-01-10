@@ -60,11 +60,13 @@ class PostDetailRepository {
         }.eraseToAnyPublisher()
     }
     
-    func removePost(_ key: String) {
+    func removePost(_ key: String) -> AnyPublisher<DatabaseReference, Error> {
         guard let user = Auth.auth().currentUser else { fatalError() }
-        userPostRef.child(user.uid).getData { error, dataSnapshot in
-            print("test: \(dataSnapshot.childSnapshot(forPath: key))")
-        }
+        let childUpdates: [String: Any?] = [
+            "/posts/\(key)": nil,
+            "/user-posts/\(user.uid)/\(key)": nil
+        ]
+        return rootRef.updateChildValues(childUpdates).eraseToAnyPublisher()
     }
     
     func addComment(_ key: String, _ text: String) -> AnyPublisher<DatabaseReference, Error> {

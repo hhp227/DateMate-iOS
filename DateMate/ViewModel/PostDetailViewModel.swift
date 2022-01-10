@@ -76,12 +76,16 @@ class PostDetailViewModel: ObservableObject {
         }
     }
     
-    private func onReceive(_ result: DatabaseReference) {
+    private func onReceive(_ keys: [String]) {
+        isMyPost = keys.contains(postKey)
+    }
+    
+    private func onAddCommentReceive(_ result: DatabaseReference) {
         message = ""
     }
     
-    private func onReceive(_ keys: [String]) {
-        isMyPost = keys.contains(postKey)
+    private func onRemovePostReceive(_ result: DatabaseReference) {
+        print("onRemovePost: \(result)")
     }
     
     func onReceive(_ completion: Subscribers.Completion<Error>) {
@@ -94,14 +98,14 @@ class PostDetailViewModel: ObservableObject {
     }
     
     func removePost() {
-        repository.removePost(postKey)
+        repository.removePost(postKey).sink(receiveCompletion: onReceive, receiveValue: onRemovePostReceive).store(in: &subscription)
     }
     
     func addComment() {
         guard !message.isEmpty else {
             return
         }
-        repository.addComment(postKey, message).sink(receiveCompletion: onReceive, receiveValue: onReceive).store(in: &subscription)
+        repository.addComment(postKey, message).sink(receiveCompletion: onReceive, receiveValue: onAddCommentReceive).store(in: &subscription)
     }
     
     init(_ repository: PostDetailRepository, _ key: String) {
