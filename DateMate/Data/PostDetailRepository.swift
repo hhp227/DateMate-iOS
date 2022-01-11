@@ -20,7 +20,7 @@ class PostDetailRepository {
     private let userPostRef: DatabaseReference
 
     func getPost(_ key: String) -> AnyPublisher<Post, Error> {
-        return postRef.child(key).observer(for: .value).tryMap { result in
+        return postRef.child(key).observeSingleEvent(of: .value).tryMap { result in
             if let dic = result.value as? [String: Any] {
                 return Post(
                     id: dic["uid"] as! String,

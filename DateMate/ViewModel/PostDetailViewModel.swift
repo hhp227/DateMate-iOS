@@ -20,6 +20,8 @@ class PostDetailViewModel: ObservableObject {
     
     @Published var isMyPost = false
     
+    @Published var isRemovePost = false
+    
     private let repository: PostDetailRepository
     
     private let postKey: String
@@ -85,6 +87,7 @@ class PostDetailViewModel: ObservableObject {
     }
     
     private func onRemovePostReceive(_ result: DatabaseReference) {
+        isRemovePost = true
         print("onRemovePost: \(result)")
     }
     

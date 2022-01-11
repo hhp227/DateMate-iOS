@@ -10,6 +10,8 @@ import SwiftUI
 struct PostDetailView: View {
     @EnvironmentObject var viewModel: PostDetailViewModel
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var body: some View {
         VStack(spacing: 0) {
             List {
@@ -48,6 +50,10 @@ struct PostDetailView: View {
                     .cancel()
                 ]
             )
+        }.onReceive(viewModel.$isRemovePost) {
+            if $0 {
+                presentationMode.wrappedValue.dismiss()
+            }
         }
     }
 }
