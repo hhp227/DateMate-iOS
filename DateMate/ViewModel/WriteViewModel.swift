@@ -57,3 +57,7 @@ class WriteViewModel: ObservableObject {
         }
     }
 }
+
+enum WriteEvent {
+    case OnDoneChange(post: Post, isDone: Bool)
+}

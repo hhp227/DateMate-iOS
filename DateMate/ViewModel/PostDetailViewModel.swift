@@ -111,6 +111,10 @@ class PostDetailViewModel: ObservableObject {
         repository.addComment(postKey, message).sink(receiveCompletion: onReceive, receiveValue: onAddCommentReceive).store(in: &subscription)
     }
     
+    /*func onEvent(_ event: PostDetailEvent) {
+        
+    }*/
+    
     init(_ repository: PostDetailRepository, _ key: String) {
         self.repository = repository
         self.postKey = key
@@ -139,4 +143,8 @@ class PostDetailViewModel: ObservableObject {
         
         var error: String = ""
     }
+}
+
+enum PostDetailEvent {
+    case DeletePost(post: Post), OnDoneChange(post: Post, isDone: Bool)
 }

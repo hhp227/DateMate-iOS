@@ -11,6 +11,8 @@ import Combine
 class LoungeViewModel: ObservableObject {
     @Published var state = State()
     
+    //@Published var uiEvent = PassthroughSubject<UiEvent, Error>()
+    
     private let repository: LoungeRepository
     
     private var subscription = Set<AnyCancellable>()
@@ -50,6 +52,21 @@ class LoungeViewModel: ObservableObject {
     func test() {
     }
     
+    /*func onEvent(_ event: LoungeEvent) {
+        switch event {
+        case .OnPostClick:
+            sendUiEvent(.Navigate(string: "Route_ADD_EDIT_POST + PostId"))
+        case .OnAddPostClick:
+            sendUiEvent(.Navigate(string: "Route_ADD_EDIT_POST"))
+        }
+    }
+    
+    private func sendUiEvent(_ event: UiEvent) {
+        DispatchQueue.main.async {
+            self.uiEvent.send(event)
+        }
+    }*/
+    
     init(_ repository: LoungeRepository) {
         self.repository = repository
         
@@ -68,4 +85,8 @@ class LoungeViewModel: ObservableObject {
         var error = ""
         
     }
+}
+
+enum LoungeEvent {
+    case OnPostClick(post: Post), OnAddPostClick
 }
