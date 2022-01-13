@@ -18,6 +18,8 @@ class PostDetailViewModel: ObservableObject {
     
     @Published var isShowingActionSheet = false
     
+    @Published var isEditPostClick = false
+    
     @Published var isMyPost = false
     
     @Published var isRemovePost = false

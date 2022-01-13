@@ -46,7 +46,8 @@ struct PostDetailView: View {
             ActionSheet(
                 title: Text("Selection Action"),
                 buttons: [
-                    .default(Text("Remove Post")) { viewModel.removePost() },
+                    .default(Text("Edit Post")) { viewModel.isEditPostClick.toggle() },
+                    .default(Text("Remove Post"), action: viewModel.removePost),
                     .cancel()
                 ]
             )
@@ -55,6 +56,7 @@ struct PostDetailView: View {
                 presentationMode.wrappedValue.dismiss()
             }
         }
+        NavigationLink("", destination: WriteEditView().environmentObject(WriteEditViewModel(.init())), isActive: $viewModel.isEditPostClick)
     }
 }
 

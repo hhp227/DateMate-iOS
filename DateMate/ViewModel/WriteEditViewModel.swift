@@ -1,5 +1,5 @@
 //
-//  WriteViewModel.swift
+//  WriteEditViewModel.swift
 //  DateMate
 //
 //  Created by 홍희표 on 2021/12/14.
@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import FirebaseDatabase
 
-class WriteViewModel: ObservableObject {
+class WriteEditViewModel: ObservableObject {
     @Published var title: String = ""
     
     @Published var content: String = ""

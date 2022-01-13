@@ -1,5 +1,5 @@
 //
-//  WriteView.swift
+//  WriteEditView.swift
 //  DateMate
 //
 //  Created by 홍희표 on 2021/12/13.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct WriteView: View {
-    @EnvironmentObject var viewModel: WriteViewModel
+struct WriteEditView: View {
+    @EnvironmentObject var viewModel: WriteEditViewModel
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -39,6 +39,6 @@ struct WriteView: View {
 
 struct WriteView_Previews: PreviewProvider {
     static var previews: some View {
-        WriteView()
+        WriteEditView()
     }
 }

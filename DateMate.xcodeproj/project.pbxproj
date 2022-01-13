@@ -24,7 +24,7 @@
 		0A3F8E38274E765000DD11F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3F8E37274E765000DD11F9 /* ContentView.swift */; };
 		0A3F8E3A274E765100DD11F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3F8E39274E765100DD11F9 /* Assets.xcassets */; };
 		0A3F8E3D274E765100DD11F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3F8E3C274E765100DD11F9 /* Preview Assets.xcassets */; };
-		0A415C9F276789AB00490796 /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A415C9E276789AB00490796 /* WriteView.swift */; };
+		0A415C9F276789AB00490796 /* WriteEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A415C9E276789AB00490796 /* WriteEditView.swift */; };
 		0A4CE238276610CE00C0A889 /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CE237276610CE00C0A889 /* PostDetailView.swift */; };
 		0A71CD1C2763A96800F0C2C7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71CD1B2763A96800F0C2C7 /* Post.swift */; };
 		0ABC1A5F2759242200771876 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC1A5E2759242200771876 /* MainView.swift */; };
@@ -34,7 +34,7 @@
 		0AF9C74D276BA85000379C39 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF9C74C276BA85000379C39 /* Firebase.swift */; };
 		0AFE8D092768CD6D0066F9FC /* PostDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE8D082768CD6D0066F9FC /* PostDetailViewModel.swift */; };
 		0AFE8D0C2768CDA80066F9FC /* PostDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE8D0B2768CDA80066F9FC /* PostDetailRepository.swift */; };
-		0AFE8D0F2768CEAD0066F9FC /* WriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE8D0E2768CEAD0066F9FC /* WriteViewModel.swift */; };
+		0AFE8D0F2768CEAD0066F9FC /* WriteEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE8D0E2768CEAD0066F9FC /* WriteEditViewModel.swift */; };
 		0AFE8D122768CF4A0066F9FC /* WriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE8D112768CF4A0066F9FC /* WriteRepository.swift */; };
 		C662C650560DE6942A4884A9 /* Pods_DateMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 662D089497AB6DC1B45F2EE9 /* Pods_DateMate.framework */; };
 /* End PBXBuildFile section */
@@ -59,7 +59,7 @@
 		0A3F8E39274E765100DD11F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A3F8E3C274E765100DD11F9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A3F8E3E274E765100DD11F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A415C9E276789AB00490796 /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
+		0A415C9E276789AB00490796 /* WriteEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteEditView.swift; sourceTree = "<group>"; };
 		0A4CE237276610CE00C0A889 /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
 		0A71CD1B2763A96800F0C2C7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		0ABC1A5E2759242200771876 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 		0AF9C74C276BA85000379C39 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		0AFE8D082768CD6D0066F9FC /* PostDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModel.swift; sourceTree = "<group>"; };
 		0AFE8D0B2768CDA80066F9FC /* PostDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailRepository.swift; sourceTree = "<group>"; };
-		0AFE8D0E2768CEAD0066F9FC /* WriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewModel.swift; sourceTree = "<group>"; };
+		0AFE8D0E2768CEAD0066F9FC /* WriteEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteEditViewModel.swift; sourceTree = "<group>"; };
 		0AFE8D112768CF4A0066F9FC /* WriteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteRepository.swift; sourceTree = "<group>"; };
 		160E6F26AC2160D724B8778D /* Pods-DateMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DateMate.debug.xcconfig"; path = "Target Support Files/Pods-DateMate/Pods-DateMate.debug.xcconfig"; sourceTree = "<group>"; };
 		662D089497AB6DC1B45F2EE9 /* Pods_DateMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DateMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,7 +96,7 @@
 				0AF55AC3275F9F120042D9F3 /* HomeViewModel.swift */,
 				0A3F40252753A9E900034106 /* SignInViewModel.swift */,
 				0AFE8D082768CD6D0066F9FC /* PostDetailViewModel.swift */,
-				0AFE8D0E2768CEAD0066F9FC /* WriteViewModel.swift */,
+				0AFE8D0E2768CEAD0066F9FC /* WriteEditViewModel.swift */,
 				0AC9F4CC27722364000A8BF9 /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
@@ -166,7 +166,7 @@
 				0ABC1A5E2759242200771876 /* MainView.swift */,
 				0A3F402F2753B38700034106 /* SignUpView.swift */,
 				0A1F0923275276500025C6E8 /* SignInView.swift */,
-				0A415C9E276789AB00490796 /* WriteView.swift */,
+				0A415C9E276789AB00490796 /* WriteEditView.swift */,
 				0A3C9F1E2770CD4C0014EDF2 /* ProfileView.swift */,
 			);
 			path = UI;
@@ -326,8 +326,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AFE8D092768CD6D0066F9FC /* PostDetailViewModel.swift in Sources */,
-				0AFE8D0F2768CEAD0066F9FC /* WriteViewModel.swift in Sources */,
-				0A415C9F276789AB00490796 /* WriteView.swift in Sources */,
+				0AFE8D0F2768CEAD0066F9FC /* WriteEditViewModel.swift in Sources */,
+				0A415C9F276789AB00490796 /* WriteEditView.swift in Sources */,
 				0A1A6F60275B143D009C6A27 /* HomeView.swift in Sources */,
 				0AF55AC4275F9F120042D9F3 /* HomeViewModel.swift in Sources */,
 				0A3F40262753A9E900034106 /* SignInViewModel.swift in Sources */,
