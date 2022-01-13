@@ -54,7 +54,7 @@ struct PostCell: View {
                 Text(post.title).lineLimit(1)
                 Text(post.body)
             }
-            NavigationLink(destination: PostDetailView().environmentObject(PostDetailViewModel(.init(), post.key))) {
+            NavigationLink(destination: PostDetailView().environmentObject(PostDetailViewModel(.init(), .init(), post.key))) {
                 EmptyView()
             }.hidden()
         }

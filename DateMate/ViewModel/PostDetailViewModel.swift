@@ -24,22 +24,24 @@ class PostDetailViewModel: ObservableObject {
     
     @Published var isRemovePost = false
     
-    private let repository: PostDetailRepository
+    private let postRepository: PostRepository
+    
+    private let commentRepository: CommentRepository
     
     private let postKey: String
     
     private var subscription = Set<AnyCancellable>()
     
     private func getPost(_ key: String) {
-        repository.getPost(key).tryMap(getPostUseCase).sink(receiveCompletion: onReceive, receiveValue: onReceive).store(in: &subscription)
+        postRepository.getPost(key).tryMap(getPostUseCase).sink(receiveCompletion: onReceive, receiveValue: onReceive).store(in: &subscription)
     }
     
     private func getComments(_ key: String) {
-        repository.getComments(key).tryMap(getCommentsUseCase).sink(receiveCompletion: onReceive, receiveValue: onReceive).store(in: &subscription)
+        commentRepository.getComments(key).tryMap(getCommentsUseCase).sink(receiveCompletion: onReceive, receiveValue: onReceive).store(in: &subscription)
     }
     
     private func getUserPostKeys(_ key: String) {
-        repository.getUserPostKeys(key).sink(receiveCompletion: onReceive, receiveValue: onReceive).store(in: &subscription)
+        postRepository.getUserPostKeys(key).sink(receiveCompletion: onReceive, receiveValue: onReceive).store(in: &subscription)
     }
     
     private func getPostUseCase(post: Post) -> Resource<Post> {
@@ -103,22 +105,23 @@ class PostDetailViewModel: ObservableObject {
     }
     
     func removePost() {
-        repository.removePost(postKey).sink(receiveCompletion: onReceive, receiveValue: onRemovePostReceive).store(in: &subscription)
+        postRepository.removePost(postKey).sink(receiveCompletion: onReceive, receiveValue: onRemovePostReceive).store(in: &subscription)
     }
     
     func addComment() {
         guard !message.isEmpty else {
             return
         }
-        repository.addComment(postKey, message).sink(receiveCompletion: onReceive, receiveValue: onAddCommentReceive).store(in: &subscription)
+        commentRepository.addComment(postKey, message).sink(receiveCompletion: onReceive, receiveValue: onAddCommentReceive).store(in: &subscription)
     }
     
     /*func onEvent(_ event: PostDetailEvent) {
         
     }*/
     
-    init(_ repository: PostDetailRepository, _ key: String) {
-        self.repository = repository
+    init(_ postRepository: PostRepository, _ commentRepository: CommentRepository, _ key: String) {
+        self.postRepository = postRepository
+        self.commentRepository = commentRepository
         self.postKey = key
         
         getPost(key)

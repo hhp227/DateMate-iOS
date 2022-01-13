@@ -16,7 +16,7 @@ class WriteEditViewModel: ObservableObject {
     
     @Published var state = State()
     
-    private let repository: WriteRepository
+    private let repository: PostRepository
     
     private var subscription = Set<AnyCancellable>()
     
@@ -41,7 +41,7 @@ class WriteEditViewModel: ObservableObject {
         repository.addPost(title, content).sink(receiveCompletion: onReceive, receiveValue: onReceive).store(in: &subscription)
     }
     
-    init(_ repository: WriteRepository) {
+    init(_ repository: PostRepository) {
         self.repository = repository
     }
     

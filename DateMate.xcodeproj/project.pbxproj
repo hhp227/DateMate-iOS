@@ -33,9 +33,9 @@
 		0AF55AC7275F9F3E0042D9F3 /* LoungeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF55AC6275F9F3E0042D9F3 /* LoungeViewModel.swift */; };
 		0AF9C74D276BA85000379C39 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF9C74C276BA85000379C39 /* Firebase.swift */; };
 		0AFE8D092768CD6D0066F9FC /* PostDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE8D082768CD6D0066F9FC /* PostDetailViewModel.swift */; };
-		0AFE8D0C2768CDA80066F9FC /* PostDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE8D0B2768CDA80066F9FC /* PostDetailRepository.swift */; };
+		0AFE8D0C2768CDA80066F9FC /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE8D0B2768CDA80066F9FC /* PostRepository.swift */; };
 		0AFE8D0F2768CEAD0066F9FC /* WriteEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE8D0E2768CEAD0066F9FC /* WriteEditViewModel.swift */; };
-		0AFE8D122768CF4A0066F9FC /* WriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE8D112768CF4A0066F9FC /* WriteRepository.swift */; };
+		0AFE8D122768CF4A0066F9FC /* CommentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE8D112768CF4A0066F9FC /* CommentRepository.swift */; };
 		C662C650560DE6942A4884A9 /* Pods_DateMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 662D089497AB6DC1B45F2EE9 /* Pods_DateMate.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,9 +68,9 @@
 		0AF55AC6275F9F3E0042D9F3 /* LoungeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoungeViewModel.swift; sourceTree = "<group>"; };
 		0AF9C74C276BA85000379C39 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		0AFE8D082768CD6D0066F9FC /* PostDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModel.swift; sourceTree = "<group>"; };
-		0AFE8D0B2768CDA80066F9FC /* PostDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailRepository.swift; sourceTree = "<group>"; };
+		0AFE8D0B2768CDA80066F9FC /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
 		0AFE8D0E2768CEAD0066F9FC /* WriteEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteEditViewModel.swift; sourceTree = "<group>"; };
-		0AFE8D112768CF4A0066F9FC /* WriteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteRepository.swift; sourceTree = "<group>"; };
+		0AFE8D112768CF4A0066F9FC /* CommentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepository.swift; sourceTree = "<group>"; };
 		160E6F26AC2160D724B8778D /* Pods-DateMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DateMate.debug.xcconfig"; path = "Target Support Files/Pods-DateMate/Pods-DateMate.debug.xcconfig"; sourceTree = "<group>"; };
 		662D089497AB6DC1B45F2EE9 /* Pods_DateMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DateMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EED1A7AB62DE6DFBFFB4DFC4 /* Pods-DateMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DateMate.release.xcconfig"; path = "Target Support Files/Pods-DateMate/Pods-DateMate.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,8 +107,8 @@
 			children = (
 				0A3B68A02757C0480041CE9F /* UserRepository.swift */,
 				0A2339F6276236EA00ED114F /* LoungeRepository.swift */,
-				0AFE8D0B2768CDA80066F9FC /* PostDetailRepository.swift */,
-				0AFE8D112768CF4A0066F9FC /* WriteRepository.swift */,
+				0AFE8D0B2768CDA80066F9FC /* PostRepository.swift */,
+				0AFE8D112768CF4A0066F9FC /* CommentRepository.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -338,13 +338,13 @@
 				0A281FC12779FC8D00D707AE /* Comment.swift in Sources */,
 				0A71CD1C2763A96800F0C2C7 /* Post.swift in Sources */,
 				0A2CDEF4278F0E0D0058618A /* UiEvent.swift in Sources */,
-				0AFE8D0C2768CDA80066F9FC /* PostDetailRepository.swift in Sources */,
+				0AFE8D0C2768CDA80066F9FC /* PostRepository.swift in Sources */,
 				0A4CE238276610CE00C0A889 /* PostDetailView.swift in Sources */,
 				0ABC1A5F2759242200771876 /* MainView.swift in Sources */,
 				0A3F40292753ABA700034106 /* SignUpViewModel.swift in Sources */,
 				0A1F0924275276500025C6E8 /* SignInView.swift in Sources */,
 				0A3B68A12757C0480041CE9F /* UserRepository.swift in Sources */,
-				0AFE8D122768CF4A0066F9FC /* WriteRepository.swift in Sources */,
+				0AFE8D122768CF4A0066F9FC /* CommentRepository.swift in Sources */,
 				0A3C9F1F2770CD4C0014EDF2 /* ProfileView.swift in Sources */,
 				0AF55AC7275F9F3E0042D9F3 /* LoungeViewModel.swift in Sources */,
 				0AF9C74D276BA85000379C39 /* Firebase.swift in Sources */,
