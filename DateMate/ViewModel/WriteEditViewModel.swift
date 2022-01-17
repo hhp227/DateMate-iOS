@@ -24,6 +24,10 @@ class WriteEditViewModel: ObservableObject {
         print("onReceive: \(result)")
     }
     
+    func onReceive(_ post: Post) {
+        print("getPost: \(post)")
+    }
+    
     func onReceive(_ completion: Subscribers.Completion<Error>) {
         switch completion {
         case .finished:
@@ -41,8 +45,12 @@ class WriteEditViewModel: ObservableObject {
         repository.addPost(title, content).sink(receiveCompletion: onReceive, receiveValue: onReceive).store(in: &subscription)
     }
     
-    init(_ repository: PostRepository) {
+    init(_ repository: PostRepository, _ postKey: String? = nil) {
         self.repository = repository
+        
+        if let key = postKey {
+            repository.getPost(key).sink(receiveCompletion: onReceive, receiveValue: onReceive).store(in: &subscription)
+        }
     }
     
     deinit {
