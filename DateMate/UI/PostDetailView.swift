@@ -26,7 +26,6 @@ struct PostDetailView: View {
                             Text(post.body)
                         }
                     }
-                    //NavigationLink("", destination: WriteEditView().environmentObject(WriteEditViewModel(.init(), post.key)), isActive: $viewModel.isEditPostClick)
                 }
                 ForEach(Array(viewModel.commentsState.comments.enumerated()), id: \.offset) { i, comment in
                     CommentCell(comment: comment)
@@ -56,7 +55,7 @@ struct PostDetailView: View {
             if $0 {
                 presentationMode.wrappedValue.dismiss()
             }
-        }
+        }.background(NavigationLink("", destination: WriteEditView().environmentObject(WriteEditViewModel(.init(), viewModel.postKey)), isActive: $viewModel.isEditPostClick))
     }
 }
 

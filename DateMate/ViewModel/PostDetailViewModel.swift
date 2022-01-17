@@ -28,9 +28,9 @@ class PostDetailViewModel: ObservableObject {
     
     private let commentRepository: CommentRepository
     
-    private let postKey: String
-    
     private var subscription = Set<AnyCancellable>()
+    
+    let postKey: String
     
     private func getPost(_ key: String) {
         postRepository.getPost(key).tryMap(getPostUseCase).sink(receiveCompletion: onReceive, receiveValue: onReceive).store(in: &subscription)
