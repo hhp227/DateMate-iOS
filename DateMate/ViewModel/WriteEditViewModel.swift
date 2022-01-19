@@ -25,7 +25,8 @@ class WriteEditViewModel: ObservableObject {
     }
     
     func onReceive(_ post: Post) {
-        print("getPost: \(post)")
+        self.title = post.title
+        self.content = post.body
     }
     
     func onReceive(_ completion: Subscribers.Completion<Error>) {
