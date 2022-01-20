@@ -22,7 +22,7 @@ class PostDetailViewModel: ObservableObject {
     
     @Published var isMyPost = false
     
-    @Published var isRemovePost = false
+    @Published var isRemovePost = false// isShowingDetailView
     
     private let postRepository: PostRepository
     

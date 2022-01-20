@@ -53,7 +53,7 @@ struct PostDetailView: View {
             )
         }.onReceive(viewModel.$isRemovePost) {
             if $0 {
-                presentationMode.wrappedValue.dismiss()
+                //presentationMode.wrappedValue.dismiss()
             }
         }.background(NavigationLink("", destination: WriteEditView().environmentObject(WriteEditViewModel(.init(), viewModel.postKey)), isActive: $viewModel.isEditPostClick))
     }
